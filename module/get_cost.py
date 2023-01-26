@@ -37,7 +37,7 @@ class GetCost:
         )
         cost_dict = res["ResultsByTime"][0]["Total"]["BlendedCost"]
         cost = Cost()
-        cost.amount = cost_dict["Amount"]
+        cost.amount = round(float(cost_dict["Amount"]), 2)
         cost.unit = cost_dict["Unit"]
 
         return cost
@@ -46,8 +46,7 @@ class GetCost:
 
         end = datetime.now()
         start = end-timedelta(days=1)
-        cost = self.__get_cost_range(start, end, Granularity.daily)
-        return cost
+        return self.__get_cost_range(start, end, Granularity.daily)
 
     def get_cost_month(self) -> Cost:
         end = datetime.now()
