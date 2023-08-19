@@ -1,7 +1,8 @@
 message = """
- - daily cost
-     - {daily_value}[{daily_unit}]
+{title}
 
- - monthly cost
-     - {monthly_value}[{monthly_unit}]
+- daily cost
+ - {daily_value}[{daily_unit}]
+- monthly cost
+ - {monthly_value}[{monthly_unit}]
 """

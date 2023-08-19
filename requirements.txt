@@ -1,2 +1,4 @@
 sync-env
 boto3
+
+slack-sdk
