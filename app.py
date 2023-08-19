@@ -5,8 +5,6 @@ import sys
 import boto3
 client = boto3.client("sns")
 
-sys.path.insert(0, "module")
-
 
 def handler(event: dict, context):
 

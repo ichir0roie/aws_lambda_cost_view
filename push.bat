@@ -1,6 +1,6 @@
 echo %ACCOUNT_ID%
 
-aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin %ACCOUNT_ID%.dkr.ecr.ap-northeast-1.amazonaws.com
-docker build -t cost_manage .
-docker tag cost_manage:latest %ACCOUNT_ID%.dkr.ecr.ap-northeast-1.amazonaws.com/cost_manage:latest
-docker push %ACCOUNT_ID%.dkr.ecr.ap-northeast-1.amazonaws.com/cost_manage:latest
+aws ecr get-login-password --region %REPOSITORY_REGION% | docker login --username AWS --password-stdin %ACCOUNT_ID%.dkr.ecr.%REPOSITORY_REGION%.amazonaws.com
+docker build -t %REPOSITORY_NAME% .
+docker tag %REPOSITORY_NAME%:latest %ACCOUNT_ID%.dkr.ecr.%REPOSITORY_REGION%.amazonaws.com/%REPOSITORY_NAME%:latest
+docker push %ACCOUNT_ID%.dkr.ecr.%REPOSITORY_REGION%.amazonaws.com/%REPOSITORY_NAME%:latest
